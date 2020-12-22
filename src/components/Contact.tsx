@@ -7,7 +7,6 @@ const layout = {
   wrapperCol: { span: 16 },
 };
 function handleSubmit(e: any) {
-  const data = new FormData(e.target);
   e.preventDefault();
   // fetch("testurl.com/contactme", {
   //   method: "post",
