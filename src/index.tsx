@@ -13,6 +13,7 @@ import Contact from "./components/Contact";
 import { Footer } from "antd/lib/layout/layout";
 import About from "./components/About";
 
+let isLoggin:boolean=false;
 ReactDOM.render(
   <React.StrictMode>
     <Router>
@@ -26,13 +27,13 @@ ReactDOM.render(
         <NavLink exact to="/contact">
           Contact-US
         </NavLink>
-        <NavLink exact to="/">
-          Login
+        <NavLink exact to="/" onClick={()=>{isLoggin=!isLoggin;}}>
+          {isLoggin ? 'Logout':'Login'}
         </NavLink>
       </div>
       <Switch>
         <Route exact path="/">
-          <App />
+          <App varry={isLoggin} />
         </Route>
         <Route path="/home">
           <Home />

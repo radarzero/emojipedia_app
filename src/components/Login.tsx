@@ -2,17 +2,18 @@ import React, { useState } from "react";
 import Input from "./Input";
 import { useHistory } from "react-router-dom";
 
-function Login() {
+function Login(props: any) {
   const [User, setUser] = useState("");
 
   const history = useHistory();
 
   async function handleClick(event: any) {
     event.preventDefault();
-    if (document.getElementById("user")?.innerText) {
+    if (true) {
       const uName = document.getElementById("user")?.innerText;
       const pass = document.getElementById("pass")?.innerText;
 
+      
       fetch("‘testurl.com/login", {
         method: "post",
         body: JSON.stringify({
@@ -28,8 +29,8 @@ function Login() {
       } catch (e) {
         alert(e.message);
       }
-    }else{
-      alert('please enter user name');
+    } else {
+      alert("please enter user name");
     }
   }
 
