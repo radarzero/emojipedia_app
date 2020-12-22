@@ -10,8 +10,8 @@ function Login(props: any) {
   async function handleClick(event: any) {
     event.preventDefault();
     if (true) {
-      const uName = document.getElementById("user")?.innerText;
-      const pass = document.getElementById("pass")?.innerText;
+      const uName = document.getElementById("user")?.innerHTML;
+      const pass = document.getElementById("pass")?.innerHTML;
 
       
       fetch("‘testurl.com/login", {
