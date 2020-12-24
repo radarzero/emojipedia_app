@@ -6,7 +6,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  NavLink,
 } from "react-router-dom";
 import Home from "./components/Home";
 import Contact from "./components/Contact";
@@ -17,20 +16,7 @@ let isLoggin:boolean=false;
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <div className="topnav">
-        <NavLink exact to="/home">
-          Home
-        </NavLink>
-        <NavLink exact to="/about">
-          About-US
-        </NavLink>
-        <NavLink exact to="/contact">
-          Contact-US
-        </NavLink>
-        <NavLink exact to="/" onClick={()=>{isLoggin=!isLoggin;}}>
-          {isLoggin ? 'Logout':'Login'}
-        </NavLink>
-      </div>
+     
       <Switch>
         <Route exact path="/">
           <App varry={isLoggin} />

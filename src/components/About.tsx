@@ -1,10 +1,12 @@
 import React from "react";
 import { Row, Col } from "antd";
+import Navbar from "./Navbar";
 
 function About() {
   return (
     <div>
-      <Row gutter={[8, 8]}>
+      <Navbar />
+      <Row gutter={[8, 8]} className='margin-Top'>
         <Col span={12} className="damon">
           <img
             src="https://i.pinimg.com/236x/25/27/77/25277734f2edac424faf7efb8ff4abc7.jpg"

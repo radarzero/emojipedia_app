@@ -4,21 +4,20 @@ import { useHistory } from "react-router-dom";
 
 function Login(props: any) {
   const [User, setUser] = useState("");
+  const [Pass, setPass] = useState("");
 
   const history = useHistory();
 
   async function handleClick(event: any) {
     event.preventDefault();
-    if (true) {
-      const uName = document.getElementById("user")?.innerHTML;
-      const pass = document.getElementById("pass")?.innerHTML;
-
-      
+    if (!User) {
+      alert("please enter your user name!");
+    } else {
       fetch("‘testurl.com/login", {
         method: "post",
         body: JSON.stringify({
-          username: uName,
-          password: pass,
+          username: User,
+          password: Pass,
         }),
       }).then(function (res) {
         console.log(res.text);
@@ -29,8 +28,6 @@ function Login(props: any) {
       } catch (e) {
         alert(e.message);
       }
-    } else {
-      alert("please enter user name");
     }
   }
 
@@ -38,7 +35,10 @@ function Login(props: any) {
     const UserName = e.target.value;
     setUser(UserName);
   }
-
+  function updatePass(e: any) {
+    const password = e.target.value;
+    setPass(password);
+  }
   return (
     <form className="form" id="loginForm">
       <h1>Hello, {User}</h1>
@@ -50,7 +50,13 @@ function Login(props: any) {
         value={User}
         onChange={updateUser}
       />
-      <Input type="password" placeholder="Password" id="pass" />
+      <Input
+        type="password"
+        placeholder="Password"
+        id="pass"
+        value={Pass}
+        onChange={updatePass}
+      />
       <button type="submit" onClick={handleClick}>
         Login
       </button>
