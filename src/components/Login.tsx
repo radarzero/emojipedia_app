@@ -24,7 +24,10 @@ function Login(props: any) {
       });
 
       try {
-        history.push("/home");
+        history.push({
+          pathname:'/home',
+          state:User,
+        });
       } catch (e) {
         alert(e.message);
       }
